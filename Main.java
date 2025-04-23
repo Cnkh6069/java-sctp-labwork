@@ -21,6 +21,13 @@ public class Main {
 
         // Create an empty ArrayList of product
         productDatabase = new ArrayList<Product>();
+
+        productDatabase.add(new PhysicalProduct("PS Five", 
+                "PS05", 999, "small", 200, "black"));
+
+        productDatabase.add(new DigitalProduct("Assassin Creed", "ARC", 
+                59, "cdrom", "ubisoft.org/downloads"));
+
         while (true) {
             sc = new Scanner(System.in);
             System.out.println("Menu:");
@@ -38,10 +45,10 @@ public class Main {
                 addProduct();
             }
             if (choice == 3) {
-                System.out.println("Update a product");
+                updateProduct();
             }
             if (choice == 4) {
-                System.out.println("Delete a product");
+                deleteProduct();
             }
             if (choice == 5) {
                 break;
@@ -54,7 +61,8 @@ public class Main {
     public static void showProducts() {
         System.out.println("See All Products");
         for (Product p : productDatabase) {
-            System.out.println(p);
+           p.display();
+           System.out.println();
         }
     }
 
@@ -99,6 +107,42 @@ public class Main {
             System.out.println("Product added successfully");
         }
 
+    }
+
+    public static void updateProduct() {
+        System.out.println();
+        System.out.println("Update a Product");
+        for (int i = 0; i < productDatabase.size(); i++) {
+            System.out.println("Index: " + i);
+            Product p = productDatabase.get(i);
+            p.display();
+            System.out.println();
+        }
+
+        System.out.print("Enter the index of the product that you want to edit: ");
+        int index = sc.nextInt();
+        sc.nextLine();
+
+        Product productToEdit = productDatabase.get(index);
+        productToEdit.editDetails(sc);
+
+
+    }
+
+    public static void deleteProduct() {
+        System.out.println();
+        System.out.println("Delete a Product");
+        for (int i = 0; i < productDatabase.size(); i++) {
+            System.out.println("Index: " + i);
+            Product p = productDatabase.get(i);
+            p.display();
+            System.out.println();
+        }
+
+        System.out.print("Enter the index of the product that you want to delete: ");
+        int index = sc.nextInt();
+        sc.nextLine();
+        productDatabase.remove(index);
     }
 
     public static void testProducts() {

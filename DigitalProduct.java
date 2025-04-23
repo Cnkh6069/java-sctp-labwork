@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class DigitalProduct extends Product {
     private String format; // mp3, mp4, .3ds
     private String downloadLink; // where to download
@@ -40,6 +42,28 @@ public class DigitalProduct extends Product {
     @Override
     public String toString() {
         return super.toString() + ", DigitalProduct [format=" + format + ", downloadLink=" + downloadLink + "]";
+    }
+
+    public void display() {
+        super.display();
+        System.out.println("File format: " + getFormat());
+        System.out.println("Download Link " + getDownloadLink());   
+    }
+
+    @Override
+    public void editDetails(Scanner sc) {
+        super.editDetails(sc);
+        System.out.print("Enter new file format (Or press ENTER to skip): ");
+        String newFileFormat = sc.nextLine();
+        if (! newFileFormat.equals("")) {
+            setFormat(newFileFormat);
+        }
+
+        System.out.print("Enter new download link (or press ENTER to skip): ");
+        String newDownloadLink = sc.nextLine();
+        if (! newDownloadLink.equals("")) {
+            setDownloadLink(newDownloadLink);
+        }
     }
 
 }
