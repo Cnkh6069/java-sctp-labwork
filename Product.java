@@ -89,29 +89,6 @@ public class Product {
             setSku(newSku);
         }
 
-        System.out.print("Please enter the new price or press ENTER to leave it as unmodified"));
-        double newPrice = sc.nextDouble();
-        sc.nex
-        System.out.println("Product Name: " + getName());
-        System.out.println("Product SKU: " + getSku());
-        System.out.println("Product Price: " + getPrice());
-    }
-
-    // All products (i.e, this class and all its children)
-    // are able to edit their details
-    public void editDetails (Scanner sc) {
-        System.out.print("Please enter the new name or press ENTER leave it unmodified: ");
-        String newName = sc.nextLine();
-        if (! newName.equals("")) {
-            setName(newName); // update the name if the newName is not empty
-        }
-
-        System.out.print("Please enter the new SKU or press ENTER to leave it unmodified: ");
-        String newSku = sc.nextLine();
-        if (! newSku.equals("")) {
-            setSku(newSku);
-        }
-
         System.out.print("Please enter the new price or press ENTER to leave it as unmodified");
         String tempPrice = sc.nextLine();
         if (! tempPrice.equals("")) {
